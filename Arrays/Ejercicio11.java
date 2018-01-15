@@ -3,6 +3,7 @@ public class Ejercicio11 {
 	
 		int[] numero = new int[10];
 		int i;
+		int x;
 		int[] guardar = new int[10];
 		int contador = 0;
 
@@ -11,26 +12,39 @@ public class Ejercicio11 {
 			numero[i] = Integer.parseInt(System.console().readLine());
 		}
 		for (i=0;i<10;i++){
-			System.out.println(i+": "numero[i]);
+			System.out.print("|"+i+"|");
 		}
+		System.out.println();
 		
-		///////////////////////// lo de abajo no vale, es para modificar
-		for (i=0;i<20;i++){
-			if (numero[i]%2==0){
-				guardar[contador]=numero[i];
+		//primos
+		for (i=0;i<10;i++){
+			boolean esPrimo = true;
+			for (x=2;x<numero[i];x++){
+				if((numero[i]%x) == 0){
+					esPrimo = false;
+				}
+			}
+			if (esPrimo == true){
+				guardar[contador] = numero[i];
 				contador++;
 			}
 		}
-		
-		for (i=0;i<20;i++){
-			if (numero[i]%2!=0){
-				guardar[contador]=numero[i];
+		//no primos
+		for (i=0;i<10;i++){
+			boolean esPrimo = true;
+			for (x=2;x<numero[i];x++){
+				if((numero[i]%x) == 0){
+					esPrimo = false;
+				}
+			}
+			if (esPrimo == false){
+				guardar[contador] = numero[i];
 				contador++;
 			}
 		}
-		
-		for (i=0;i<20;i++){
-			System.out.print(guardar[i]+", ");
+		//resultado
+		for (i=0;i<10;i++){
+			System.out.print("|"+guardar[i]+"|");
 		}
 		
 	}		
